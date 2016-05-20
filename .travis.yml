@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: S06c5ftVkakQ3Uz0wgTM3Y2uLRGelAOoxcKI+nAnRAzDnomWWzzs36/MOPmpn8xEXMgnz6Ip+0qA1bk8ZmCLbk0OUZkw9KF/e+sBrsU6J/fam5yTudN1AN7B+cOEnBCerffTnwcOm8Z94qCn3MeYm3cpYkc1FeZ/MCuorFkrlFDwljsugRiLxFPRcXmUjnNCaanrfQbh8fzC+9HLfbTHcFf/XjcPXTHJlSq2Rt0YKyx6yOVZ+fv0tjJYTWCclZZ8+RlX46J99Ig7NR59flt43ixv/W1oRuoAVgG92nMTyTZ1V4U2QlcMNVbmySacZMeeEJy+2VdGtZTyp9DoOWEEOd59AoDbSdOhavcGcop2grvjxu4iDLpOnyxz24QJuEKD38rTpmnLam4jSKV9f/4hreCFXq1N9RErzug2BS7WeFHABymRua3E2RgZq/8AkAqY4kE0/iE6jcOILjlnzFq4rQyOYriTYENUphBPCVj98Bn9K+gETZXsONojqOkLssN7kxY52NPRQv+FT6z5ZGaN7TgXM/s8+pSyEckoVSevftvMCTwUaR04tuYw1S1inDM3Jhci/l9eGhTKImd1/VnNYuAU9Is0uQ4wOG4SW6sf5RLvNrhBUyUQ2JBh4N2lQIv32m0INUvy6OyxCngdszcLGmYNrzJdB+ATXgqnoFkxTnE=
+  app: enigmatic-atoll-25736
+  on:
+    repo: gchronis/story-ui
